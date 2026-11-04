@@ -98,9 +98,7 @@ jobs:
             libvorbis
 
           find $VCPKG_ROOT/installed -name '*.pc' -exec sed -i -E 's/-lc\+\+//g' {} \;
-         echo "===== VERSOES SDL INSTALADAS ====="
-grep -A 4 -E '^Package: (sdl3|sdl3-image|sdl3-ttf)$' \
-  "$VCPKG_ROOT/installed/vcpkg/status" || true
+          
       - name: Prepare SDL Android project
         run: |
           # Has to be the same version as the one found in vcpkg!!
