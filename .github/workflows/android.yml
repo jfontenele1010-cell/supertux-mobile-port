@@ -64,7 +64,8 @@ jobs:
 
       - name: Bootstrap custom vcpkg
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: |
+        run: |          echo "===== VERSOES SDL INSTALADAS ====="
+          find "$VCPKG_ROOT/installed" -iname '*sdl3*' -print | head -80
           case "${{ matrix.arch }}" in
             arm64-v8a) export VCPKG_TRIPLET=arm64-android ;;
             armeabi-v7a) export VCPKG_TRIPLET=arm-neon-android ;;
